@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <span>Path: {{ selectedItem }}</span>
+    <type-directory
+        :name="name"
+        path="./"
+        :selectedItem="selectedItem"
+        :contents="contents"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import data from "../public/static/node_modules.json";
+
+import TypeDirectory from "@/components/TypeDirectory";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {TypeDirectory},
+  provide() {
+    return {
+      setSelectedItem: this.setSelectedItem
+    };
+  },
+  data() {
+    return {
+      selectedItem: ``,
+      name: ``,
+      contents: [],
+    };
+  },
+  created() {
+    this.name = data.name;
+    this.contents = data.contents;
+  },
+  methods: {
+    setSelectedItem(path) {
+      this.selectedItem = path;
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./assets/style.css"/>
