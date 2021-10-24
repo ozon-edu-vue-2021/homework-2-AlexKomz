@@ -1,0 +1,51 @@
+.container {
+    display: inline-flex;
+}
+
+.container:focus {
+    outline: 2px solid dodgerblue;
+}
+
+.container:hover {
+    color: rgba(0, 0, 0, .5);
+}
+
+.container_selected {
+    background-color: lightblue;
+}
+
+.container_active {
+    outline: 2px solid black;
+}
+
+.container__name {
+    margin-left: 10px;
+    user-select: none;
+}
+
+.container__name_link {
+    margin-left: 6px;
+    text-decoration: underline;
+}
+
+.container__name_directory {
+    margin-left: 5px;
+}
+
+.container__name_opened {
+    margin-left: 3px;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+.list__item {
+
+}
