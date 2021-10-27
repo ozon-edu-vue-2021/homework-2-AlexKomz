@@ -12,7 +12,7 @@
       </span>
     </div>
     <ul class="list" v-if="isOpened">
-      <li v-for="(item, i) of contents" :key="i">
+      <li v-for="item of contents" :key="`${fullPath}${item.name}`">
         <type-base
             v-if="item.type === `file`"
             :is-selected="selectedItem === `${fullPath}${item.name}`"
